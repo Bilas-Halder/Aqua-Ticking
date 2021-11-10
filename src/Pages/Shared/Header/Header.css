@@ -1,0 +1,56 @@
+.custom-nav{
+    height: 70px;
+}
+.logo-div{
+    width: 30px;
+    height: 40px;
+    margin-right: 10px;
+}
+.logo-div img{
+    width: 100%;
+}
+.brand-name{
+    color: black;
+}
+.brand-name{
+    padding-top: 7px;
+}
+
+.nav-btn{
+    position: relative;
+    color: #00a79e;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease-in;
+    border: none;
+    background-color: transparent;
+}
+.nav-btn::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 2px;
+    width: 0%;
+    background-color: #AF7F66;
+    transition: all 0.25s ease-in;
+}
+.nav-btn::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    height: 2px;
+    width: 0%;
+    background-color: #AF7F66;
+    transition: all 0.25s ease-in;
+}
+.nav-btn:hover{
+    color: #00a79e;
+}
+.nav-btn:hover::before{
+    width: 50%;
+}
+.nav-btn:hover::after{
+    width: 50%;
+}
