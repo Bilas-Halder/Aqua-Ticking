@@ -11,12 +11,23 @@ const Banner = () => {
     const ref = useRef(null);
     const [divHeight, setDivHeight] = useState(0);
     const [divWidth, setDivWidth] = useState(0);
+    const [timeCount, setTimeCount] = useState(0);
+    const [timeOut, setTimeout] = useState(0);
+
 
     useEffect(() => {
-        setDivWidth(ref.current ? (ref.current.offsetWidth - 335) / 2 : 0);
-        setDivHeight(ref.current ? (ref.current.offsetHeight - 462) / 2 : 0);
-        console.log(divHeight, divWidth);
-    }, [ref.current, window.innerWidth]);
+        setTimeout(() => {
+            setDivWidth(ref.current ? (ref.current.offsetWidth - 335) / 2 : 0);
+            setDivHeight(ref.current ? (ref.current.offsetHeight - 462) / 2 : 0);
+
+            if (timeCount >= 10) {
+                setTimeout(100000000);
+            }
+            else {
+                setTimeCount(timeCount + 1);
+            }
+        }, timeOut);
+    }, [timeCount])
 
     return (
         <Container fluid style={{ padding: '0px' }}>
@@ -47,6 +58,9 @@ const Banner = () => {
                             <p className="banner-text">
                                 We transparently build high-quality minimal watches from the finest components and materials.
                             </p>
+                            <button className="primary-btn">
+                                Shop Now
+                            </button>
                         </div>
                     </div>
                 </Col>
