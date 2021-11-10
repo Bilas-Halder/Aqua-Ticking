@@ -1,0 +1,126 @@
+.watch-img{
+    position: absolute; 
+    left: 0;
+    top: 0;
+    display: block; 
+    height: 462px; 
+    width: 335px; 
+    opacity: 1; 
+    min-height: 462px; 
+    min-width: 335px;
+    animation: top-down 6s ease-in-out infinite alternate-reverse;
+}
+.watch-img img{
+    margin-top: 22px;
+}
+
+.banner-right{
+    background-color: #F8F7F6;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3rem 0 12rem;
+}
+
+
+.sm-img-div{
+    width: 100%;
+    display: none;
+    justify-content: center;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    background-color: #F8F7F6;
+}
+.watch-img-sm{
+    height: 214px; 
+    width: 156px; 
+    opacity: 1; 
+    min-height: 214px; 
+    min-width: 156px; 
+    filter: none;
+
+}
+.watch-img-sm img{
+    animation: top-down-sm 6s ease-in-out infinite alternate-reverse;
+}
+
+.banner-quote{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 62px;
+    font-weight: normal;
+    line-height: 57px;
+}
+.pleasure-from{
+    position: relative;
+}
+.pleasure-from::after{
+    content: 'From';
+    position: absolute;    
+    bottom: -3px;
+    right: -43px;
+    font-size: 10px;
+
+}
+
+
+@media screen and (max-width: 575px) {
+    #banner-left{
+        display: none;
+    }
+
+    .watch-img{
+        display: none;
+    }
+
+    .sm-img-div{
+        display: flex;
+    }
+    
+
+
+    .banner-right{
+        height: auto;
+        padding: 0;
+    }
+    .banner-quote{
+        font-size: 33px;
+        line-height: 32px;
+        text-align: center;
+    }
+    .banner-quote .from{
+        font-size: 10px;
+    }
+    .banner-text{
+        display: none;
+    }
+
+}
+
+
+
+
+@keyframes top-down {
+    0%{
+        top: -4%;
+    }
+    50%{
+        top: 4%;
+    }
+    100%{
+        top: -4%;
+    }
+}
+
+@keyframes top-down-sm {
+    0%{
+        margin-top: -1.1rem;
+    }
+    50%{
+        margin-top: 1.1rem;
+    }
+    100%{
+        margin-top: -1.3rem;
+    }
+}
