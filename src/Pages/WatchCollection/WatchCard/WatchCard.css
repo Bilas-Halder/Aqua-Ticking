@@ -1,3 +1,7 @@
+.custom-col{
+    padding: 1rem 1.2rem;
+    position: relative ;
+}
 .custom-card{
     border: none;
     background-color: #F8F7F6;
@@ -6,6 +10,7 @@
 }
 .custom-card:hover{
     transform: scale(0.96,0.96);
+    box-shadow: 1px 0px 20px -5px gray;
 }
 .custom-card-img{
     transform: scale(1.1,1.1);
@@ -13,6 +18,11 @@
 }
 .custom-card:hover .custom-card-img{
     transform: scale(1.4,1.4);
+}
+.card-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
 }
 
 
@@ -31,14 +41,19 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-.price span{
+.price .free{
+    font-size: 1.1rem;
+    color: #0b9555;
+
+}
+.price .cut-price{
     font-size: 0.8rem;
     color: #686868;
     margin-left: 0.3rem;
     padding: 0.2rem;
     position: relative;
 }
-.price span::after{
+.price .cut-price::after{
     content: '';
     position: absolute;
     left: 0;
@@ -51,4 +66,36 @@
     font-family: 'Libre Baskerville', serif;
     padding: 0.3rem 1rem;
     margin-bottom: 1rem;
+}
+
+.sale-circle{
+    position: absolute;
+    right: 2rem;
+    top: 1.8rem;
+    width: 3.1rem;
+    height: 3.1rem;
+    background-color: #AF7F66;
+    color: white;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 575px) {
+    .custom-col{
+        padding-left:0.5rem ;
+        padding-right: 0.5rem;
+        text-align: center;
+    }
+    .card-details{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

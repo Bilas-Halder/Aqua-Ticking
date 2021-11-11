@@ -6,8 +6,8 @@ const Products = () => {
     const pd = {
         title: "Lawson Franklin 38 Men’s Watch",
         img: "https://i.ibb.co/TBTFsPt/1.png",
-        price: 210,
-        percentOff: 20,
+        price: 210.5258,
+        percentOff: 13,
         rating: 3.3,
         reviews: 5,
         allLink: `

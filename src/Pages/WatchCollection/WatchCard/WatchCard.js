@@ -6,16 +6,16 @@ import Rating from "react-rating";
 const WatchCard = ({ watch }) => {
     const { title, img, price, rating, reviews, percentOff } = watch;
     return (
-        <Col xs={12} md={6} lg={4} style={{ padding: '1rem 1.2rem' }}>
+        <Col xs={12} md={6} lg={4} className="custom-col">
 
             <Card className="custom-card">
                 <Card.Img className="custom-card-img" variant="top" src={img} />
                 <Card.Body style={{ padding: '0px 1rem 1rem 1.5rem' }}>
                     <h5 style={{ fontSize: "1.1rem" }}>{title}</h5>
 
-                    <div className="d-flex justify-content-between align-items-end">
+                    <div className="card-details">
                         <div>
-                            <div className="rating-div">
+                            <div className="rating-div reviews-rating-div ">
                                 <Rating
                                     emptySymbol="far fa-star"
                                     fullSymbol="fas fa-star"
@@ -26,13 +26,13 @@ const WatchCard = ({ watch }) => {
                                 <span className="review-count"> ( {reviews} ) </span>
                             </div>
 
-                            <p className="price">$
+                            <p className="price">
                                 {
-                                    percentOff ? price - ((price * percentOff) / 100) : price
+                                    percentOff ? percentOff >= 100 ? <span className="free">Free</span> : `$${(price - ((price * percentOff) / 100)).toFixed(2)}` : price.toFixed(2)
                                 }
                                 {
                                     percentOff ?
-                                        <span>( ${price} )</span> : ""
+                                        <span className="cut-price">( ${price.toFixed(2)} )</span> : ""
                                 }
                             </p>
                         </div>
@@ -40,8 +40,15 @@ const WatchCard = ({ watch }) => {
                         <button className="primary-btn card-btn">Buy Now</button>
 
                     </div>
+
                 </Card.Body>
             </Card>
+
+            {
+                percentOff > 0 ? <div className="sale-circle">
+                    {percentOff < 100 ? `${percentOff.toFixed(1)}%` : "Free"}
+                </div> : ""
+            }
         </Col>
     );
 };

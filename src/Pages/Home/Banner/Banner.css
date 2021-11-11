@@ -1,7 +1,10 @@
-.watch-img{
+.watch-Img-div{
     position: absolute; 
     left: 0;
     top: 0;
+}
+
+.watch-img{
     display: block; 
     height: 462px; 
     width: 335px; 
@@ -95,6 +98,13 @@
     .banner-text{
         display: none;
     }
+    .banner-btn{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+    }
 
 }
 
@@ -103,13 +113,13 @@
 
 @keyframes top-down {
     0%{
-        top: -4%;
+        margin-top: -3rem;
     }
     50%{
-        top: 4%;
+        margin-top: 3rem;
     }
     100%{
-        top: -4%;
+        margin-top: -3rem;
     }
 }
 
