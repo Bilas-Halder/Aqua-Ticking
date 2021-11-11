@@ -1,8 +1,9 @@
 import React from 'react';
 import './Banner.css';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Nav, Row } from 'react-bootstrap';
 import bannerImg from '../../../images/banner-img.jpg';
 import bannerWatch from '../../../images/banner-watch.png';
+import { HashLink } from 'react-router-hash-link';
 
 const Banner = () => {
 
@@ -36,9 +37,7 @@ const Banner = () => {
                                 We transparently build high-quality minimal watches from the finest components and materials.
                             </p>
                             <div className="banner-btn">
-                                <button className="primary-btn">
-                                    Shop Now
-                                </button>
+                                <Nav.Link className="primary-btn" as={HashLink} to="/#smallCollection" >Shop Now</Nav.Link>
                             </div>
                         </div>
                     </div>

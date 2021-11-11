@@ -64,7 +64,7 @@
 }
 .card-btn{
     font-family: 'Libre Baskerville', serif;
-    padding: 0.3rem 1rem;
+    padding: 0.3rem 1rem !important;
     margin-bottom: 1rem;
 }
 

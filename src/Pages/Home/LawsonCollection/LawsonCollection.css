@@ -1,0 +1,34 @@
+.lawson-details{
+    width: 100%;
+    height: 100%;
+    padding: 12% 50% 12% 12%;
+}
+.lawson-title{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3rem;
+    line-height: 50px;
+}
+.lawson-text{
+    color: #b4b4b4;
+    margin: 2rem 0px;
+}
+
+
+
+@media screen and (max-width: 575px) {
+    .lawson-details{
+        padding: 7%;
+    }
+    .lawson-title{
+        font-size: 0.9rem;
+        line-height: 20px;
+    }
+    .lawson-text{
+        display: none;
+    }
+    .lawson-btn{
+        font-size: 0.7rem;
+        padding: 0.4rem 0.7rem !important;
+        margin-top: 1rem;
+    }
+}

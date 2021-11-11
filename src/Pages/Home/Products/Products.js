@@ -23,7 +23,7 @@ const Products = () => {
     const x = [0, 1, 2, 3, 4, 5];
 
     return (
-        <Container style={{ marginTop: '7rem' }}>
+        <Container id="smallCollection" style={{ paddingTop: '6rem' }}>
             <h2 className="banner-quote" style={{ fontSize: '2.4rem', textAlign: "center", marginBottom: "2rem" }}>
                 Our Bestsellers
             </h2>
