@@ -13,18 +13,17 @@
 }
 .nav-brand-name{
     padding: 1rem 0;
-    height: 10%;
 }
 .custom-nav-bar{
     display: flex;
     height: 90%;
     flex-direction: column;
     color: white;
-    /* color: black; */
     justify-content: space-between;
     padding: 1rem 0rem 1rem 0rem;
     font-family: 'Libre Baskerville', serif;
     font-size: 0.9rem;
+    transition: all 0.3s ease-in;
 }
 .custom-nav-bar ul{
     padding: 0rem 1rem 0 1rem !important;
@@ -82,10 +81,8 @@
         width: 100%;
     }
     .left-side-collapse .custom-nav-bar{
-        transition: all 2s ease-in;
         height: 0px;
-        display: none;
-
+        opacity: 0;
     }
     .collapse-btn-div{
         display: flex;
@@ -131,5 +128,8 @@
     }
     .menu-btns .menu-btn2 {
         transform: rotate(45deg) translate(-6px,-6px);
+    }
+    .d-none-sm{
+        display: none;
     }
 }

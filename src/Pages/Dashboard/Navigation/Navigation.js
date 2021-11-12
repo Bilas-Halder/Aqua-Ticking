@@ -1,18 +1,17 @@
 import React from 'react';
 import './Navigation.css';
 import logo from '../../../images/logo-1.png';
-import { MdDashboard, MdPayment, MdRateReview } from 'react-icons/md';
-import { FaClipboardList, FaHome } from 'react-icons/fa';
+import { MdDashboard, MdPayment, MdRateReview, MdQueue } from 'react-icons/md';
+import { FaClipboardList, FaHome, FaUserShield } from 'react-icons/fa';
 import { BsFillCollectionFill } from 'react-icons/bs';
-import { BiMenu } from 'react-icons/bi';
-import { IoLogOut, IoSettings, IoMdMenu } from 'react-icons/io5';
+import { IoLogOut, IoSettings } from 'react-icons/io5';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
-const Navigation = () => {
+const Navigation = ({ url }) => {
     const { user, logOut } = useAuth();
     const [navData, setNavData] = useState([]);
     const [menuBtn, setMenuBtn] = useState(false);
@@ -30,44 +29,49 @@ const Navigation = () => {
         {
             name: "Dashboard",
             icon: <MdDashboard />,
-            to: "/"
+            to: `${url}`
         },
         {
             name: "My Order",
             icon: <FaClipboardList />,
-            to: "/"
+            to: `${url}/myOrders`
         },
         {
             name: "Review",
             icon: <MdRateReview />,
-            to: "/"
+            to: `${url}/review`
         },
         {
             name: "Pay",
             icon: <MdPayment />,
-            to: "/"
+            to: `${url}/pay`
         }
     ];
     const adminNavData = [
         {
             name: "Dashboard",
             icon: <MdDashboard />,
-            to: "/"
+            to: `${url}`
         },
         {
-            name: "My Order",
+            name: "Manage All Orders",
             icon: <FaClipboardList />,
-            to: "/"
+            to: `${url}/manageAllOrders`
         },
         {
-            name: "Review",
-            icon: <MdRateReview />,
-            to: "/"
+            name: "Add A Product",
+            icon: <MdQueue />,
+            to: `${url}/addAProduct`
         },
         {
-            name: "Pay",
+            name: "Make Admin",
+            icon: <FaUserShield />,
+            to: `${url}/makeAdmin`
+        },
+        {
+            name: "Manage Products",
             icon: <MdPayment />,
-            to: "/"
+            to: `${url}/manageProducts`
         }
     ];
 
@@ -92,6 +96,11 @@ const Navigation = () => {
 
     useEffect(() => setNavData(userNavData), []);
 
+
+    const sleep = (time) => {
+        return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
     // toggle behavior
     useEffect(() => {
         setClicked(!menuBtn);
@@ -99,6 +108,8 @@ const Navigation = () => {
         const element = document.querySelector(".left-side");
         if (menuBtn) {
             element.classList.remove("left-side-collapse");
+            document.querySelector(".hamburger-btn").classList.add("menu-btns");
+            document.querySelector(".custom-nav-bar").classList.remove("d-none-sm");
             document.querySelector(".hamburger-btn").classList.add("menu-btns");
         }
     }, [menuBtn]);
@@ -108,7 +119,10 @@ const Navigation = () => {
         if (clicked) {
             element.classList.add("left-side-collapse");
             document.querySelector(".hamburger-btn").classList.remove("menu-btns");
-            console.log(element);
+
+            sleep(300).then(() => {
+                document.querySelector(".custom-nav-bar").classList.add("d-none-sm");
+            });
             setClicked(false);
         }
     }, [clicked]);
@@ -117,7 +131,7 @@ const Navigation = () => {
         <>
             <div className="brand-name nav-brand-name">
                 <div className="collapse-btn-div">
-                    <div className="d-flex align-items-center justify-content-center">
+                    <div className="d-flex align-items-center justify-content-start" style={{ paddingLeft: "2.7rem" }}>
                         <div className="logo-div">
                             <img src={logo} alt="" />
                         </div>

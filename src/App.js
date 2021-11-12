@@ -13,6 +13,7 @@ import AuthProvider from './Contexts/AuthProvider';
 import SignUp from './Pages/Login/SignUp/SignUp';
 import PrivateRoute from './Pages/Shared/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import BuyNow from './Pages/WatchCollection/BuyNow/BuyNow';
 
 initializeApp(firebaseConfig);
 
@@ -28,8 +29,11 @@ function App() {
           <Route path='/watch-collection' exact >
             <WatchCollection></WatchCollection>
           </Route>
+          <PrivateRoute path='/buyNow/:id' >
+            <BuyNow></BuyNow>
+          </PrivateRoute>
 
-          <PrivateRoute path='/dashboard' exact>
+          <PrivateRoute path='/dashboard'>
             <Dashboard></Dashboard>
           </PrivateRoute>
 

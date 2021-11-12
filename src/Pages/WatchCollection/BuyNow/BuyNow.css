@@ -1,0 +1,171 @@
+.buy-now-banner-img-div{
+    overflow: hidden;
+}
+.buy-now-banner::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #00000070;
+    transition: all 0.3s ease-in;
+    z-index: 100;
+}
+.buy-now-banner-img{
+    margin-top: -10vh;
+}
+.img-overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 105;
+}
+.buy-now-banner-title{
+    font-size: 3vw;
+}
+.buy-now-watch-img-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.buy-now-watch-img{
+    width: 30%;
+    border-radius: 7px;
+    margin-right: 50px;
+    transform: scale(1.9,1.9);
+}
+.buying-form-div{
+    width: 100%;
+    border-radius: 7px;
+    box-shadow: 0px 0px 20px -5px gray;
+}
+
+
+.buying-watch-name-div{
+    display: flex;
+}
+.buying-watch-name{
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.buying-watch-name i{
+    color: #051E34;
+}
+.buying-watch-rating{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #051E34;
+}
+.buying-watch-rating span{
+    font-size: 1.1rem;
+}
+.buying-watch-price-div{
+    display: flex;
+}
+.buying-watch-price{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.buying-watch-price span{
+    font-size: 1.2rem;
+}
+
+
+
+
+/* react form */
+
+.form-input{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #051E34;
+    margin-top: 0.7rem;
+    outline: none !important;
+}
+.quantity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #051E34;
+    border-radius: 6px;
+    margin-top: 0.7rem;
+}
+.quantity span{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.quantity span span{
+    font-size: 1.3rem;
+}
+.plus,.minus{
+    border: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+    line-height: 16px;
+    margin: 0px 1rem;
+    color: #051E34;
+    cursor: pointer;
+}
+.plus svg,.minus svg{
+    font-size: 1.4rem;
+}
+
+.msg-box{
+    height: 20vh;
+}
+.submit-btn{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 2px solid #051E34;
+    background-color: #051E34;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease-in ;
+}
+.submit-btn:hover{
+    color:#051E34;
+    background-color: white;
+    border: 2px solid #051E34;
+}
+
+
+
+
+
+@media screen and (max-width: 575px) {
+    
+.buy-now-banner-img{
+    margin-top: 0vh;
+}
+
+.buy-now-banner-title{
+    font-size: 4.5vw;
+}
+
+.buying-watch-name-div{
+    display: block;
+}
+.buying-watch-name{
+    text-align: center;
+}
+.buying-watch-price{
+    font-size: 1.1rem;
+    text-align: center;
+}
+.buying-watch-price-div{
+    display: block;
+}
+.buy-now-watch-img{
+    margin-right: 0px;
+}
+}

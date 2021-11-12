@@ -2,9 +2,10 @@ import React from 'react';
 import './WatchCard.css';
 import { Card, Col } from 'react-bootstrap';
 import Rating from "react-rating";
+import { NavLink } from 'react-router-dom';
 
 const WatchCard = ({ watch }) => {
-    const { title, img, price, rating, reviews, percentOff } = watch;
+    const { title, img, price, rating, reviews, percentOff, _id } = watch;
     return (
         <Col xs={12} md={6} lg={4} className="custom-col">
 
@@ -37,7 +38,7 @@ const WatchCard = ({ watch }) => {
                             </p>
                         </div>
 
-                        <button className="primary-btn card-btn">Buy Now</button>
+                        <NavLink to={`/buyNow/${_id}`} className="primary-btn card-btn">Buy Now</NavLink>
 
                     </div>
 
