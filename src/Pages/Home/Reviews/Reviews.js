@@ -17,7 +17,7 @@ const Reviews = () => {
     const reviews = [1, 2, 3, 4, 5, 6, 7];
     const review = {
         displayName: "Name Name",
-        img: "",
+        img: "https://i.ibb.co/WDQc6gY/Dp-186kb.jpg",
         rating: 5,
         reviewMsg: "Lorem ipsum dolor sit tenetur? Lorem ipsum amet. Lorem ipsum dolor sit amet."
     }

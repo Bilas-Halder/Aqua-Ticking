@@ -54,3 +54,16 @@
 .secondary-btn:hover::before{
   clip-path: circle(0% at 50% 50%);
 }
+
+
+.alert {
+  font-size: 0.8rem;
+  padding: 0.6rem 0.9rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alert svg{
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
