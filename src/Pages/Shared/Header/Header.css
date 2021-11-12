@@ -5,6 +5,9 @@
     width: 30px;
     height: 40px;
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .logo-div img{
     width: 100%;

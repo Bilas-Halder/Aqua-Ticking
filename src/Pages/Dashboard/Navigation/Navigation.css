@@ -1,0 +1,135 @@
+.dashboard{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.left-side{
+    width: 20%;
+    transition: all 1s ease-in-out;
+}
+.right-side{
+    width: 80%;
+}
+.nav-brand-name{
+    padding: 1rem 0;
+    height: 10%;
+}
+.custom-nav-bar{
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    color: white;
+    /* color: black; */
+    justify-content: space-between;
+    padding: 1rem 0rem 1rem 0rem;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.9rem;
+}
+.custom-nav-bar ul{
+    padding: 0rem 1rem 0 1rem !important;
+}
+.custom-nav-bar ul li{
+    text-decoration: none;
+    list-style: none;
+    padding: 0.3rem 1.2rem ;
+    margin: 1rem 0.5rem;
+    /* background-color: white; */
+    
+    border-radius: 10px 0px 10px 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-nav-bar ul li:hover{
+    color: #051E34;
+    background-color: #fff;
+}
+.custom-nav-bar ul li a{
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.custom-nav-bar ul li a:hover{
+    color: inherit;
+    text-decoration: none;
+}
+.custom-nav-bar ul li a svg{
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.3rem;
+    margin-right: 1rem;
+}
+.hamburger-btn{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 575px) {
+    .dashboard{
+        flex-direction: column;
+        justify-content: start;
+        padding-top: 5rem;
+    }
+    .left-side{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .right-side{
+        width: 100%;
+    }
+    .left-side-collapse .custom-nav-bar{
+        transition: all 2s ease-in;
+        height: 0px;
+        display: none;
+
+    }
+    .collapse-btn-div{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .hamburger-btn{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+        position: relative;
+    }
+    .menu-btn,.menu-btn1, .menu-btn2{
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        width: 24px;
+        height: 3px;
+        background-color: white;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+    .menu-btn1{
+        top: 48%;
+    }
+    .menu-btn{
+        top: 30%;
+    }
+    .menu-btn2{
+        top: 66%;
+    }
+    .menu-btns .menu-btn1 {
+        transform: scale(5,1);
+        background-color: transparent;
+    }
+    .menu-btns .menu-btn {
+        transform: rotate(-45deg) translate(-6px,6px);
+    }
+    .menu-btns .menu-btn2 {
+        transform: rotate(45deg) translate(-6px,-6px);
+    }
+}

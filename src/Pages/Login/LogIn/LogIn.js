@@ -7,6 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 import { Alert } from 'react-bootstrap';
 import { FaRegEyeSlash, FaRegEye, FaGooglePlusSquare } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
+import Header from '../../Shared/Header/Header';
 
 export const validEmail = new RegExp(
     '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$'
@@ -103,65 +104,69 @@ const LogIn = () => {
     }
 
     return (
-        <div style={{ height: '90vh' }} className="d-flex justify-content-center align-items-center">
-            <div className="form-container">
-                {
-                    path ?
-                        <div className="log-in-header" style={{
-                            fontSize: '25px',
-                            color: "red"
-                        }}>Please LogIn First</div>
+        <>
+            <Header />
 
-                        : <div className="log-in-header">LogIn Form</div>
-                }
-                <form>
-                    <div className="input-field">
-                        <input type="text" required />
-                        <label>Email or Username</label>
-                    </div>
+            <div style={{ height: '90vh' }} className="d-flex justify-content-center align-items-center">
+                <div className="form-container">
                     {
-                        emailErr && <Alert variant="danger">
-                            <MdErrorOutline /> Please enter a valid email address
-                        </Alert>
+                        path ?
+                            <div className="log-in-header" style={{
+                                fontSize: '25px',
+                                color: "red"
+                            }}>Please LogIn First</div>
+
+                            : <div className="log-in-header">LogIn Form</div>
                     }
-                    <div className="input-field">
-                        <input className="password" type={showing ? "text" : "password"} required />
-                        <span className="show">
-                            <button onClick={isShow}>{showing ? <FaRegEyeSlash /> : <FaRegEye />}</button>
-                        </span>
-                        <label>Password</label>
-                    </div>
-                    {
-                        passErr && <Alert variant="danger">
-                            <MdErrorOutline /> Password character must be more then 6.
-                        </Alert>
-                    }
-                    {
-                        wrongEmailOrPass && <Alert variant="danger">
-                            <MdErrorOutline /> Wrong Email or Password | please try again.
-                        </Alert>
-                    }
-                    <button className="primary-btn login-btn" onClick={logInUsingEmailHandler}>Log In</button>
-                </form>
-                <div className="auth">
-                    Or log in with
-                </div>
-                <div className="links">
-                    <button onClick={logInUsingGoogleHandler} className="google">
-                        <FaGooglePlusSquare /><span>Google</span>
-                    </button>
-                </div>
-                <div className="signup">
-                    Not a member?
-                    <NavLink to={
+                    <form>
+                        <div className="input-field">
+                            <input type="text" required />
+                            <label>Email or Username</label>
+                        </div>
                         {
-                            pathname: '/signup',
-                            state: { from: path }
+                            emailErr && <Alert variant="danger">
+                                <MdErrorOutline /> Please enter a valid email address
+                            </Alert>
                         }
-                    }> Signup now</NavLink>
+                        <div className="input-field">
+                            <input className="password" type={showing ? "text" : "password"} required />
+                            <span className="show">
+                                <button onClick={isShow}>{showing ? <FaRegEyeSlash /> : <FaRegEye />}</button>
+                            </span>
+                            <label>Password</label>
+                        </div>
+                        {
+                            passErr && <Alert variant="danger">
+                                <MdErrorOutline /> Password character must be more then 6.
+                            </Alert>
+                        }
+                        {
+                            wrongEmailOrPass && <Alert variant="danger">
+                                <MdErrorOutline /> Wrong Email or Password | please try again.
+                            </Alert>
+                        }
+                        <button className="primary-btn login-btn" onClick={logInUsingEmailHandler}>Log In</button>
+                    </form>
+                    <div className="auth">
+                        Or log in with
+                    </div>
+                    <div className="links">
+                        <button onClick={logInUsingGoogleHandler} className="google">
+                            <FaGooglePlusSquare /><span>Google</span>
+                        </button>
+                    </div>
+                    <div className="signup">
+                        Not a member?
+                        <NavLink to={
+                            {
+                                pathname: '/signup',
+                                state: { from: path }
+                            }
+                        }> Signup now</NavLink>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
 
     );
 };

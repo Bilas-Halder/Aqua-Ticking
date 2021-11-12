@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import WatchCard from './WatchCard/WatchCard';
+import Header from '../Shared/Header/Header';
 
 const WatchCollection = () => {
     const [products, setProducts] = useState([]);
@@ -15,16 +16,19 @@ const WatchCollection = () => {
     }, []);
 
     return (
-        <Container id="smallCollection" style={{ paddingTop: '1rem' }}>
-            <h2 className="banner-quote" style={{ fontSize: '2.4rem', textAlign: "center", marginBottom: "2rem" }}>
-                Our Bestsellers
-            </h2>
-            <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
-                {
-                    products.map((pd) => <WatchCard watch={pd} key={pd.title} />)
-                }
-            </Row>
-        </Container>
+        <>
+            <Header />
+            <Container id="smallCollection" style={{ paddingTop: '1rem' }}>
+                <h2 className="banner-quote" style={{ fontSize: '2.4rem', textAlign: "center", marginBottom: "2rem" }}>
+                    Our Bestsellers
+                </h2>
+                <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
+                    {
+                        products.map((pd) => <WatchCard watch={pd} key={pd.title} />)
+                    }
+                </Row>
+            </Container>
+        </>
     );
 };
 

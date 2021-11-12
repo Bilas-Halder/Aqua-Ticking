@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from './firebase/firebase_config';
-import Header from './Pages/Shared/Header/Header';
 import Home from './Pages/Home/Home';
 import Footer from './Pages/Shared/Footer/Footer';
 import NotFound from './Pages/Shared/NotFound/NotFound';
@@ -22,8 +21,6 @@ function App() {
     <AuthProvider>
       <Router>
         <ScrollToTop />
-        <Header />
-
         <Switch>
           <Route path='/' exact >
             <Home></Home>
