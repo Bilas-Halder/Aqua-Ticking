@@ -4,7 +4,6 @@ import Navigation from './Navigation/Navigation';
 import MyOrder from './MyOrders/MyOrders';
 import './Navigation/Navigation.css';
 import Pay from './Pay/Pay';
-import Review from './Review/Review';
 import DashboardHome from './DashboardHome/DashboardHome';
 import useAuth from '../../hooks/useAuth';
 import ManageOrders from './ManageOrders/ManageOrders';
@@ -13,6 +12,7 @@ import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageProducts from './ManageProducts/ManageProducts';
 import AdminRoute from '../Shared/AdminRoute/AdminRoute';
 import PrivateRoute from '../Shared/PrivateRoute/PrivateRoute';
+import MakeReview from './Review/Review';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -43,7 +43,7 @@ const Dashboard = () => {
                         <MyOrder />
                     </PrivateRoute>
                     <PrivateRoute path={`${path}/review`}>
-                        <Review />
+                        <MakeReview />
                     </PrivateRoute>
                     <PrivateRoute path={`${path}/pay`}>
                         <Pay />

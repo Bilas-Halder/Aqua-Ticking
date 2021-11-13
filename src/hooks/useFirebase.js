@@ -10,8 +10,9 @@ const useFirebase = () => {
     const [role, setRole] = useState("");
     const [orders, setOrders] = useState([]);
     const [products, setProducts] = useState([]);
-    // const dbURL = "http://localhost:5000";
-    const dbURL = "https://glacial-cliffs-26298.herokuapp.com";
+    const [reviews, setReviews] = useState([]);
+    const dbURL = "http://localhost:5000";
+    // const dbURL = "https://glacial-cliffs-26298.herokuapp.com";
 
 
     const googleProvider = new GoogleAuthProvider();
@@ -112,7 +113,9 @@ const useFirebase = () => {
         setOrders,
         setProducts,
         products,
-        useAdminRole
+        useAdminRole,
+        setReviews,
+        reviews
     };
 };
 

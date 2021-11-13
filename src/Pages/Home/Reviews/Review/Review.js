@@ -6,6 +6,9 @@ const Review = ({ review }) => {
     const { img, displayName, rating, reviewMsg } = review;
     return (
         <div className="review-card">
+            {
+                console.log(review)
+            }
             <div className="main-review">
                 <div>
                     <div className="review-img-div">

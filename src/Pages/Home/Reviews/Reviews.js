@@ -13,14 +13,7 @@ import Review from "./Review/Review";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
-const Reviews = () => {
-    const reviews = [1, 2, 3, 4, 5, 6, 7];
-    const review = {
-        displayName: "Name Name",
-        img: "https://i.ibb.co/WDQc6gY/Dp-186kb.jpg",
-        rating: 5,
-        reviewMsg: "Lorem ipsum dolor sit tenetur? Lorem ipsum amet. Lorem ipsum dolor sit amet."
-    }
+const Reviews = ({ reviews }) => {
     return (
         <Container>
 
@@ -44,7 +37,7 @@ const Reviews = () => {
                 pagination={true}
                 className="mySwiper">
                 {
-                    reviews.map(() => {
+                    reviews.map((review) => {
                         return (
                             <SwiperSlide className="slider-custom" >
                                 <Review review={review} />
