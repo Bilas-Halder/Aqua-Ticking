@@ -11,8 +11,8 @@ const useFirebase = () => {
     const [orders, setOrders] = useState([]);
     const [products, setProducts] = useState([]);
     const [reviews, setReviews] = useState([]);
-    const dbURL = "http://localhost:5000";
-    // const dbURL = "https://glacial-cliffs-26298.herokuapp.com";
+    // const dbURL = "http://localhost:5000";
+    const dbURL = "https://glacial-cliffs-26298.herokuapp.com";
 
 
     const googleProvider = new GoogleAuthProvider();
@@ -98,6 +98,10 @@ const useFirebase = () => {
         logged,
         loading,
         dbURL,
+        role,
+        orders,
+        products,
+        reviews,
         setUser,
         setLogged,
         setLoading,
@@ -108,14 +112,10 @@ const useFirebase = () => {
         logInUsingEmail,
         updateName,
         setRole,
-        role,
-        orders,
         setOrders,
         setProducts,
-        products,
         useAdminRole,
-        setReviews,
-        reviews
+        setReviews
     };
 };
 

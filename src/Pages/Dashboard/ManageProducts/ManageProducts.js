@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
+import BlueSpinner from '../../Shared/Spinner/Spinner';
 import WatchCard from '../../WatchCollection/WatchCard/WatchCard';
 
 const ManageProducts = () => {
@@ -16,18 +17,19 @@ const ManageProducts = () => {
     }, []);
 
     return (
-        <>
-            <Container id="smallCollection" style={{ paddingTop: '1rem' }}>
-                <div className="tag-line">
-                    <h3 className="left-right">Manage All Products</h3>
-                </div>
-                <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
-                    {
-                        products.map((pd) => <WatchCard product={pd} manage watch={pd} key={pd.title} />)
-                    }
-                </Row>
-            </Container>
-        </>
+        products.length === 0 ? <BlueSpinner></BlueSpinner> :
+            <>
+                <Container id="smallCollection" style={{ paddingTop: '1rem' }}>
+                    <div className="tag-line">
+                        <h3 className="left-right">Manage All Products</h3>
+                    </div>
+                    <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
+                        {
+                            products.map((pd) => <WatchCard product={pd} manage watch={pd} key={pd.title} />)
+                        }
+                    </Row>
+                </Container>
+            </>
     );
 };
 

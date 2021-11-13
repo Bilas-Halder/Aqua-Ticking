@@ -8,10 +8,7 @@ import '../MyOrders/MyOrder.css';
 
 
 const ManageOrders = () => {
-    const { dbURL, user, orders, setOrders, loading, setLoading, useAdminRole } = useAuth();
-    useEffect(() => {
-        console.log(loading);
-    }, [loading]);
+    const { dbURL, user, orders, setOrders, useAdminRole } = useAuth();
     useAdminRole();
 
     useEffect(() => {
@@ -24,19 +21,21 @@ const ManageOrders = () => {
     }, []);
 
     return (
-        <Container>
-            <div className="my-order">
-                <div className="tag-line">
-                    <h3 className="left-right">Manage All Orders</h3>
-                </div>
-                <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
-                    {
-                        orders.map((order) => <WatchCard order={order} all watch={order.watch} key={order._id} />)
-                    }
-                </Row>
 
-            </div>
-        </Container>
+        orders.length === 0 ? <BlueSpinner></BlueSpinner> :
+            <Container>
+                <div className="my-order">
+                    <div className="tag-line">
+                        <h3 className="left-right">Manage All Orders</h3>
+                    </div>
+                    <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
+                        {
+                            orders.map((order) => <WatchCard order={order} all watch={order.watch} key={order._id} />)
+                        }
+                    </Row>
+
+                </div>
+            </Container>
     );
 };
 

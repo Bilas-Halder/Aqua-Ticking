@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import WatchCard from './WatchCard/WatchCard';
 import Header from '../Shared/Header/Header';
 import useAuth from '../../hooks/useAuth';
+import BlueSpinner from '../Shared/Spinner/Spinner';
 
 const WatchCollection = () => {
     const { products, setProducts } = useAuth();
@@ -17,19 +18,21 @@ const WatchCollection = () => {
     }, []);
 
     return (
-        <>
-            <Header />
-            <Container id="smallCollection" style={{ paddingTop: '1rem' }}>
-                <h2 className="banner-quote" style={{ fontSize: '2.4rem', textAlign: "center", marginBottom: "2rem" }}>
-                    Our Bestsellers
-                </h2>
-                <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
-                    {
-                        products.map((pd) => <WatchCard watch={pd} key={pd.title} />)
-                    }
-                </Row>
-            </Container>
-        </>
+
+        products.length === 0 ? <BlueSpinner></BlueSpinner> :
+            <>
+                <Header />
+                <Container id="smallCollection" style={{ paddingTop: '1rem' }}>
+                    <h2 className="banner-quote" style={{ fontSize: '2.4rem', textAlign: "center", marginBottom: "2rem" }}>
+                        Our Bestsellers
+                    </h2>
+                    <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
+                        {
+                            products.map((pd) => <WatchCard watch={pd} key={pd.title} />)
+                        }
+                    </Row>
+                </Container>
+            </>
     );
 };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
+import BlueSpinner from '../../Shared/Spinner/Spinner';
 import WatchCard from '../../WatchCollection/WatchCard/WatchCard';
 
 const Products = () => {
@@ -15,16 +16,17 @@ const Products = () => {
     }, []);
 
     return (
-        <Container id="smallCollection" style={{ paddingTop: '6rem' }}>
-            <h2 className="banner-quote" style={{ fontSize: '2.4rem', textAlign: "center", marginBottom: "2rem" }}>
-                Our Bestsellers
-            </h2>
-            <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
-                {
-                    products.map((pd) => <WatchCard watch={pd} key={pd.title} />)
-                }
-            </Row>
-        </Container>
+        products.length === 0 ? <BlueSpinner></BlueSpinner> :
+            <Container id="smallCollection" style={{ paddingTop: '6rem' }}>
+                <h2 className="banner-quote" style={{ fontSize: '2.4rem', textAlign: "center", marginBottom: "2rem" }}>
+                    Our Bestsellers
+                </h2>
+                <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
+                    {
+                        products.map((pd) => <WatchCard watch={pd} key={pd.title} />)
+                    }
+                </Row>
+            </Container>
     );
 };
 

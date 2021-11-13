@@ -14,7 +14,6 @@ const Home = () => {
         fetch(`${dbURL}/reviews`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setReviews(data);
             })
             .catch(e => console.log(e))
