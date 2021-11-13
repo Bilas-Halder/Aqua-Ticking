@@ -13,23 +13,20 @@ import { BsFillBagPlusFill, BsFillBagDashFill } from "react-icons/bs";
 const BuyNow = () => {
     const [watch, setWatch] = useState({});
     const { id } = useParams();
-    const { user } = useAuth();
+    const { user, dbURL } = useAuth();
     const [quantity, setQuantity] = useState(1);
     const { register, handleSubmit } = useForm();
     const history = useHistory();
 
-
     const postData = (url, data) => {
         return fetch(url, {
-            method: 'POST', // or 'PUT'
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
         });
     };
-
-
 
     const onSubmit = async (data) => {
         data.watchId = watch?._id;
@@ -38,7 +35,7 @@ const BuyNow = () => {
         data.status = "Pending";
         data.watch = watch;
 
-        const url = "http://localhost:5000/buyone";
+        const url = `${dbURL}/buyone`;
         await postData(url, data)
             .then(response => response.json())
             .then(d => {
@@ -51,7 +48,7 @@ const BuyNow = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/watches/${id}`)
+        fetch(`${dbURL}/watches/${id}`)
             .then(res => res.json())
             .then(data => {
                 setWatch(data);

@@ -7,6 +7,11 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [logged, setLogged] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [role, setRole] = useState("");
+    const [orders, setOrders] = useState([]);
+    const [products, setProducts] = useState([]);
+    // const dbURL = "http://localhost:5000";
+    const dbURL = "https://glacial-cliffs-26298.herokuapp.com";
 
 
     const googleProvider = new GoogleAuthProvider();
@@ -16,9 +21,6 @@ const useFirebase = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     };
-
-
-
 
     const updateName = name => {
         return updateProfile(auth.currentUser, {
@@ -36,21 +38,48 @@ const useFirebase = () => {
         return signInWithEmailAndPassword(auth, email, password);
     };
 
-
-
+    const setUserDataInDB = (nUser) => {
+        const newUser = {
+            email: nUser.email,
+            displayName: nUser.displayName,
+            photoURL: nUser.photoURL,
+            emailVerified: nUser.emailVerified,
+            accessToken: nUser.accessToken,
+            role: "user"
+        };
+        fetch(`${dbURL}/users`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newUser),
+        }).then(response => response.json())
+            .catch(err => console.log(err));
+    }
     useEffect(() => {
         // if the user is signed In then setting the user
         onAuthStateChanged(auth, currentUser => {
             if (currentUser) {
                 setUser(currentUser);
-                console.log(user);
+                setUserDataInDB(currentUser);
             }
             else if (auth.currentUser) {
                 setUser(auth.currentUser);
+                setUserDataInDB(auth.currentUser);
             }
             setLoading(false);
         });
     }, [auth, logged]);
+
+    const useAdminRole = () => {
+        useEffect(() => {
+            fetch(`${dbURL}/users/role/${user.email}`)
+                .then(res => res.json())
+                .then(data => {
+                    setRole(data.role);
+                })
+        }, []);
+    }
 
 
     const logOut = (path, history) => {
@@ -67,14 +96,23 @@ const useFirebase = () => {
         user,
         logged,
         loading,
+        dbURL,
         setUser,
         setLogged,
         setLoading,
+        setUserDataInDB,
         logInUsingGoogle,
         logOut,
         signUpUsingEmail,
         logInUsingEmail,
-        updateName
+        updateName,
+        setRole,
+        role,
+        orders,
+        setOrders,
+        setProducts,
+        products,
+        useAdminRole
     };
 };
 

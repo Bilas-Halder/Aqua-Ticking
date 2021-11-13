@@ -1,0 +1,73 @@
+.users-row{
+    padding: 3rem;
+}
+.user-details{
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: lemonchiffon;
+    border: 1px solid #051E34;
+    border-radius: 10px;
+   font-family: 'Libre Baskerville', serif;
+}
+
+.user-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.user-name{
+    justify-content: left;
+    width: 170px;
+    text-align: left;
+    padding-left: 2rem;
+}
+.user-mid{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.disabled{
+    cursor: not-allowed;
+}
+.make-admin-btn{
+    border-radius: 10px;
+    border-color: #051E34;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    font-size: 1rem;
+    float: end;
+}
+
+@media screen and (max-width: 575px) {
+    .user-details{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+.user-item{
+    padding-left: 0rem;
+    padding-right: 0rem;
+    margin: 5px 0;
+}
+.user-name{
+    width: 100%;
+    text-align: left;
+    align-items: center ;
+    justify-content: center;
+    padding-left: 0rem;
+    text-align: center !important;
+}
+.user-mid{
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+}

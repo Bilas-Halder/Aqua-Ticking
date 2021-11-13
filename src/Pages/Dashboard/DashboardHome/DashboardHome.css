@@ -1,0 +1,7 @@
+.small-tag{
+    font-size: 1.3rem;
+    margin-top: 3rem;
+}
+.small-tag .flex-colum{
+    flex-direction: column;
+}

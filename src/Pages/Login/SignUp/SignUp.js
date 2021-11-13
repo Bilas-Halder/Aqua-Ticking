@@ -14,7 +14,7 @@ import { MdErrorOutline } from "react-icons/md";
 const SignUp = () => {
 
 
-    const { user, setUser, signUpUsingEmail, updateName, setLogged, setLoading } = useAuth();
+    const { user, setUser, signUpUsingEmail, updateName, setLogged, setLoading, setUserDataInDB } = useAuth();
 
 
     const history = useHistory();
@@ -86,9 +86,16 @@ const SignUp = () => {
                 updateName(name).then(() => {
                     setUser(userCredential.user);
                     setLogged(true);
-                    history.push(path);
-                    setShowing(false);
-                    formElement.reset();
+                    setUserDataInDB(userCredential.user)
+                        .then((user) => {
+                            history.push(path);
+                            setShowing(false);
+                            formElement.reset();
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+
                 });
             })
             .catch(err => console.log(err))

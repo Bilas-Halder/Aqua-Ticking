@@ -12,7 +12,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Navigation = ({ url }) => {
-    const { user, logOut } = useAuth();
+    const { logOut, role } = useAuth();
     const [navData, setNavData] = useState([]);
     const [menuBtn, setMenuBtn] = useState(false);
     const [clicked, setClicked] = useState(false);
@@ -74,8 +74,6 @@ const Navigation = ({ url }) => {
             to: `${url}/manageProducts`
         }
     ];
-
-
     const fixedNavData = [
         {
             name: "Home",
@@ -94,7 +92,10 @@ const Navigation = ({ url }) => {
         }
     ];
 
-    useEffect(() => setNavData(userNavData), []);
+
+    useEffect(() => {
+        setNavData(role === "admin" ? adminNavData : userNavData)
+    }, [role]);
 
 
     const sleep = (time) => {
@@ -107,10 +108,10 @@ const Navigation = ({ url }) => {
 
         const element = document.querySelector(".left-side");
         if (menuBtn) {
-            element.classList.remove("left-side-collapse");
-            document.querySelector(".hamburger-btn").classList.add("menu-btns");
-            document.querySelector(".custom-nav-bar").classList.remove("d-none-sm");
-            document.querySelector(".hamburger-btn").classList.add("menu-btns");
+            element?.classList.remove("left-side-collapse");
+            document?.querySelector(".hamburger-btn").classList.add("menu-btns");
+            document?.querySelector(".custom-nav-bar").classList.remove("d-none-sm");
+            document?.querySelector(".hamburger-btn").classList.add("menu-btns");
         }
     }, [menuBtn]);
 

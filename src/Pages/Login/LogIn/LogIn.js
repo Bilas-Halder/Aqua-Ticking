@@ -18,7 +18,7 @@ export const validPassword = new RegExp('(?=^.{6,}$)');
 
 const LogIn = () => {
 
-    const { user, setUser, setLogged, logInUsingEmail, logInUsingGoogle, setLoading } = useAuth();
+    const { user, setUser, setLogged, logInUsingEmail, logInUsingGoogle, setLoading, dbURL, setRole } = useAuth();
 
     const history = useHistory();
     const location = useLocation();
@@ -75,15 +75,24 @@ const LogIn = () => {
         // if everything is ok then we are gonna call firebase to check the user
         logInUsingEmail(email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                setUser(user);
-                setLogged(true);
-                setWrongEmailOrPass(false);
-                formElement.reset();
-                history.push(path);
+                const nUser = userCredential.user;
+                setUser(nUser);
+                fetch(`${dbURL}/users/role/${user.email}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        setRole(data.role);
+                        setLogged(true);
+                        setWrongEmailOrPass(false);
+                        formElement.reset();
+                        history.push(path);
+                    })
+
             })
             .catch(err => {
                 if (err.message === "Firebase: Error (auth/wrong-password).") {
+                    setWrongEmailOrPass(true);
+                }
+                else if (err.message === "Firebase: Error (auth/user-not-found).") {
                     setWrongEmailOrPass(true);
                 }
                 else {
@@ -96,8 +105,13 @@ const LogIn = () => {
     const logInUsingGoogleHandler = () => {
         logInUsingGoogle()
             .then(result => {
-                setLogged(true);
-                history.push(path);
+                fetch(`${dbURL}/users/role/${user.email}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        setRole(data.role);
+                        setLogged(true);
+                        history.push(path);
+                    })
             })
             .catch(err => console.log(err))
             .finally(setLoading(false));

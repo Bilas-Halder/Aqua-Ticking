@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import WatchCard from './WatchCard/WatchCard';
-import Header from '../Shared/Header/Header';
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
+import WatchCard from '../../WatchCollection/WatchCard/WatchCard';
 
-const WatchCollection = () => {
+const ManageProducts = () => {
     const { products, setProducts } = useAuth();
 
     useEffect(() => {
@@ -18,14 +17,13 @@ const WatchCollection = () => {
 
     return (
         <>
-            <Header />
             <Container id="smallCollection" style={{ paddingTop: '1rem' }}>
-                <h2 className="banner-quote" style={{ fontSize: '2.4rem', textAlign: "center", marginBottom: "2rem" }}>
-                    Our Bestsellers
-                </h2>
+                <div className="tag-line">
+                    <h3 className="left-right">Manage All Products</h3>
+                </div>
                 <Row style={{ margin: '0px', width: '100%', position: 'relative' }}>
                     {
-                        products.map((pd) => <WatchCard watch={pd} key={pd.title} />)
+                        products.map((pd) => <WatchCard product={pd} manage watch={pd} key={pd.title} />)
                     }
                 </Row>
             </Container>
@@ -33,4 +31,4 @@ const WatchCollection = () => {
     );
 };
 
-export default WatchCollection;
+export default ManageProducts;

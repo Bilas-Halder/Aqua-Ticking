@@ -67,3 +67,37 @@
   font-size: 1.2rem;
   margin-right: 5px;
 }
+
+
+.left-right{
+  display: inline-block;
+  position: relative;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  font-size: inherit;
+}
+.left-right::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: black;
+  transition: all 0.3s ease-in;
+  animation: left-right 3s ease-in-out infinite alternate-reverse;
+}
+
+
+@keyframes left-right {
+  0%{
+      width: 0%;
+      left: 0;
+  }
+  50%{
+      width: 100%;
+  }
+  100%{
+      width: 0%;
+      right: 0;
+  }
+}

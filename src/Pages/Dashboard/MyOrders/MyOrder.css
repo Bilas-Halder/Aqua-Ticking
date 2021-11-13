@@ -1,0 +1,10 @@
+.my-order{
+    width: 100%;
+    height: 100%;
+    padding-top: 4rem;
+}
+.tag-line{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5rem;
+    text-align: center;
+}

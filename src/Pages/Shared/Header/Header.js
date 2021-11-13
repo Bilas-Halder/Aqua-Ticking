@@ -33,7 +33,10 @@ const Header = () => {
 
                     <Nav.Link className="text-center nav-btn" as={HashLink} to="/watch-collection">Watch Collection</Nav.Link>
 
-                    <Nav.Link className="text-center nav-btn" as={HashLink} to="/dashboard">DashBoard</Nav.Link>
+                    {
+                        user.email ?
+                            <Nav.Link className="text-center nav-btn" as={HashLink} to="/dashboard">DashBoard</Nav.Link> : ""
+                    }
 
                     {
                         user.email ? <Nav.Link className="text-center nav-btn" as={HashLink} to="/dashboard">{user.displayName}</Nav.Link> : ""
